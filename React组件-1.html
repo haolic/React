@@ -12,26 +12,27 @@
     class Comp extends React.Component{
       constructor(...args){
         super(...args);
-        this.state = {value: ''};
+        this.state = {
+          value: ""
+        }
       }
-      fn (){
-        alert('abc');
+      fn (ev){
+        this.setState({
+          value: ev.target.value
+        })
       }
-
       render(){
         return <div>
           <input type="text" onChange={this.fn.bind(this)}/>
-          <span></span>
+          <span>{this.state.value}</span>
         </div>
       }
     }
-    window.onload = function (){
-      var oDiv = document.getElementById("div1");
-      ReactDOM.render(
-        <Comp/>,
-        oDiv
-      )
-    }
+    var oDiv = document.getElementById("div1");
+    ReactDOM.render (
+      <Comp/>,
+      oDiv
+    )
   </script>
 </head>
 <body>

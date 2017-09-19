@@ -5,14 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <script type="text/javascript" src="./js/react.js"></script>
+  <script src="./js/react.js"></script>
   <script src="./js/react-dom.js"></script>
   <script src="./js/browser.js"></script>
   <script type="text/babel">
-    var oDiv = document.getElementById("div1");
-    window.onload = function () {
+    class Comp extends React.Component{
+      constructor(...args) {
+        super(...args);
+      }
+      render (){
+        return <div>
+          <input type="text"/>
+          <span></span>
+        </div>
+      }
+    }
+    window.onload = function (){
+      var oDiv = document.getElementById("div1");
       ReactDOM.render(
-        <span>hello world</span>,
+        <Comp/>,
         oDiv
       )
     }

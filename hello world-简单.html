@@ -5,20 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="./js/react.js"></script>
+  <script src="./js/react-dom.js"></script>
   <script src="./js/browser.js"></script>
   <script type="text/babel">
-    class Person{
-      constructor(){
-        alert('abc');
-      }
-      show(){
-
-      }
-    }
-    var p = new Person();
+    ReactDOM.render(
+      <h1>hello, world!</h1>,
+      document.getElementById("div1")
+    )
   </script>
 </head>
 <body>
-
+  <div id="div1"></div>
 </body>
 </html>

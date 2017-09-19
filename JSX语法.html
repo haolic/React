@@ -9,23 +9,25 @@
   <script src="./js/react-dom.js"></script>
   <script src="./js/browser.js"></script>
   <script type="text/babel">
-    class Comp extends React.Component{
-      render () {
-        return <span>hello, world!</span>;
-      }
-    }
-    window.onload = function (){
-      var oDiv = document.getElementById('div1');
-      ReactDOM.render(
-        <Comp/>,
-        oDiv
-      )
-    }
+    function formatName (user) {
+      return user.firstName + " " + user.lastName;
+    };
+    const user = {
+      firstName : 'J',
+      lastName : 'SX'
+    };
+    const element = (
+      <h1>
+        JSX语法哈哈哈{formatName (user)}
+      </h1>
+    );
+    ReactDOM.render(
+      element,
+      document.getElementById('div1')
+    )
   </script>
 </head>
 <body>
-  <div id="div1">
-
-  </div>
+  <div id="div1"></div>
 </body>
 </html>

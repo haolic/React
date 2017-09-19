@@ -4,23 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script type="text/javascript" src="./js/react.js"></script>
+  <title>定时器</title>
+  <script src="./js/react.js"></script>
   <script src="./js/react-dom.js"></script>
   <script src="./js/browser.js"></script>
   <script type="text/babel">
-    var oDiv = document.getElementById("div1");
-    window.onload = function () {
+    function tick () {
+      const element = (
+        <div>
+          <h1>Hello, world!</h1>
+          <h2>It is {new Date().toLocaleTimeString()}.</h2>
+        </div>
+      );
       ReactDOM.render(
-        <span>hello world</span>,
-        oDiv
+        element,
+        document.getElementById("div1")
       )
     }
+    tick();
+    setInterval(tick, 1000);
   </script>
 </head>
 <body>
-  <div id="div1">
-
-  </div>
+  <div id="div1"></div>
 </body>
 </html>

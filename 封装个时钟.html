@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/browser.js"></script>
+    <script type="text/babel">
+        function Clock (props) {
+            return <span>现在时间是:{props.date.toLocaleString()}</span>
+        }
+        function autoTime() {
+            ReactDOM.render(
+                <Clock date={new Date()}/>,
+                document.getElementById('div1')
+            )
+        }
+        setInterval(autoTime, 1000);
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/browser.js"></script>
+    <script type="text/babel">
+        var class1 = {
+            backgroundColor: '#f90',
+            fontSize: '14px'
+        };
+        ReactDOM.render(
+            <div style={class1}>测试哈哈哈</div>,
+            document.getElementById('div1')
+        )
+        ReactDOM.render(
+            <div style={{backgroundColor: '#9f0', fontSize: '16px'}}>哈哈哈</div>,
+            document.getElementById('div2')
+        )
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

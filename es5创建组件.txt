@@ -1,0 +1,21 @@
+var 组件名 = React.createClass({
+  propTypes: {
+    属性: 类型,
+    属性: 类型
+  },
+  getDefaultProps: function () {
+    return {
+      属性: 值,
+      属性: 值
+    }
+  },
+  geIinitialState: function () {
+    return {
+      状态键名: 值,
+      状态键名: 值
+    }
+  },
+  render: function () {
+    return 组件内容
+  }
+});

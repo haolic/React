@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>状态state</title>
+  <script src="./js/react.js"></script>
+  <script src="./js/react-dom.js"></script>
+  <script src="./js/browser.js"></script>
+  <script type="text/babel">
+    class Clock extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {date: new Date()};
+      }
+      componentDidMount() {
+        this.timerID = setInterval(() => this.tick(),1000);
+      }
+      componentWillUnmount() {
+        clearInterval(this.timerID);
+      }
+      tick() {
+        this.setState({date: new Date()})
+      }
+      render () {
+        return (
+          <div>
+            <h1>It is {this.state.date.toLocaleString()}</h1>
+          </div>
+        )
+      }
+    }
+    ReactDOM.render(
+      <Clock/>,
+      document.getElementById('div1')
+    )
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

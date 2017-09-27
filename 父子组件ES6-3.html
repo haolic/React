@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>父子组件</title>
+  <script src="./js/react.js"></script>
+  <script src="./js/react-dom.js"></script>
+  <script src="./js/browser.js"></script>
+  <script type="text/babel">
+    class Comp extends React.Component{
+      render() {
+        return <p>{this.props.name}</p>
+      }
+    }
+    class FaComp extends React.Component{
+      constructor() {
+        super();
+        this.state = {
+          name: 'hahaha'
+        }
+      }
+      change(e){
+        this.setState({
+          name: e.target.value
+        })
+      }
+      render() {
+        return <div>
+          <Comp name={this.state.name}/>
+          <input type="text" onChange={this.change.bind(this)}/>
+        </div>
+      }
+    }
+    ReactDOM.render(
+      <FaComp name="haha"/>,
+      document.getElementById("div1")
+    )
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

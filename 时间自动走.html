@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./js/react.js"></script>
+  <script src="./js/react-dom.js"></script>
+  <script src="./js/browser.js"></script>
+  <script type="text/babel">
+    class AutoTime extends React.Component{
+      constructor(props) {
+        super();
+        this.state = {
+          hour: '0',
+          minutes: '0',
+          seconds: '0'
+        };
+        setInterval(function() {
+          this.showTime();
+        }.bind(this),1000);
+      }
+      componentDidMount() {
+        this.showTime();
+      }
+      showTime() {
+        var myDate = new Date();
+        this.setState({
+          hour: myDate.getHours() < 10 ? "0" + myDate.getHours() : myDate.getHours(),
+          minutes: myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes(),
+          seconds: myDate.getSeconds() < 10 ? "0" + myDate.getHours() : myDate.getSeconds(),
+        })
+      }
+      render() {
+        return <div>
+          <span>{this.state.hour}</span>:
+          <span>{this.state.minutes}</span>:
+          <span>{this.state.seconds}</span>
+        </div>
+      }
+    }
+    ReactDOM.render(
+      <AutoTime />,
+      document.getElementById("div1")
+    )
+  </script>
+</head>
+<body>
+  <div id="div1"></div>
+</body>
+</html>

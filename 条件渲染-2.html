@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/browser.js"></script>
+    <script type="text/babel">
+        class Login extends React.Component {
+            render() {
+                return <h1>please sign up</h1>
+            }
+        }
+        class Logout extends React.Component{
+            render() {
+                return <h1>welcome back!</h1>
+            }
+        }
+        class IsLogin extends React.Component{
+            render() {
+                if(this.props.isLogin) {//props前边要加上this即this.props.isLogin
+                    return <Login />
+                }
+                return <Logout />
+            }
+        }
+        class Com extends React.Component{
+            constructor(props) {
+                super(props);
+                this.state = {
+                    isLogin: true,
+                };
+            }
+            handleLogin() {
+                this.setState({
+                    isLogin: true
+                });
+            }
+            handleLogout() {
+                this.setState({
+                    isLogin: false
+                });
+            }
+            render() {
+                let button = null;
+                if(this.state.isLogin) {
+                    return <div>
+                        <IsLogin isLogin={this.state.isLogin}/>
+                        <button onClick={this.handleLogout.bind(this)}>logout</button>
+                    </div>
+
+                } else {
+                    return <div>
+                        <IsLogin isLogin={this.state.isLogin}/>
+                        <button onClick={this.handleLogin.bind(this)}>login</button>
+                    </div>
+                }
+            }
+        }
+        ReactDOM.render(
+            <Com />,
+            document.getElementById('div1')
+        )
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

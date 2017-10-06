@@ -22,7 +22,7 @@
         }
         class IsLogin extends React.Component{
             render() {
-                if(this.props.isLogin) {//props前边要加上this即this.props.isLogin
+                if(this.props.isLogin) {//ES6写法中props前边要加上this即this.props.isLogin
                     return <Login />
                 }
                 return <Logout />
@@ -46,7 +46,6 @@
                 });
             }
             render() {
-                let button = null;
                 if(this.state.isLogin) {
                     return <div>
                         <IsLogin isLogin={this.state.isLogin}/>

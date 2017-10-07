@@ -46,18 +46,7 @@
                 });
             }
             render() {
-                if(this.state.isLogin) {
-                    return <div>
-                        <IsLogin isLogin={this.state.isLogin}/>
-                        <button onClick={this.handleLogout.bind(this)}>logout</button>
-                    </div>
-
-                } else {
-                    return <div>
-                        <IsLogin isLogin={this.state.isLogin}/>
-                        <button onClick={this.handleLogin.bind(this)}>login</button>
-                    </div>
-                }
+              return this.state.isLogin? <button onClick={this.handleLogout.bind(this)}>logout</button> : <button onClick={this.handleLogin.bind(this)}>login</button>
             }
         }
         ReactDOM.render(

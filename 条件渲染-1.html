@@ -55,19 +55,7 @@
             });
         }
         render() {
-            const isLoggedIn = this.state.isLoggedIn;
-            let button = null;
-            if (isLoggedIn) {
-                button = <LogoutButton onClick={this.handleLogoutClick.bind(this)} />;
-            } else {
-                button = <LoginButton onClick={this.handleLoginClick.bind(this)} />;
-            }
-            return (
-                <div>
-                    <Greeting isLoggedIn={isLoggedIn} />
-                    {button}
-                </div>
-            )
+            return this.state.isLoggedIn ? <LogoutButton onClick={this.handleLogoutClick.bind(this)} /> : <LoginButton onClick={this.handleLoginClick.bind(this)} />
         }
     }
     ReactDOM.render(
